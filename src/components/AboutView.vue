@@ -10,21 +10,24 @@
                     </div>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-1 order-2 order-lg-1 content ">
-                    <h3>Welcome to MovieMatch, where film enthusiasts unite!</h3>
+                    <h3 style="text-align: center; font-size: 40px; ">Welcome to MovieMatch !</h3>
                     <br>
                     <p class="fst-italic" style="font-size: 17px;">
-                        Join us to create your personal
-                        film list from a vast selection of movies.
+                        We are a community dedicated to film enthusiasts, 
+                        where we invite you to discover and share this beautiful cinematic passion.
+                        With us, you have the opportunity to create a personal list of movies from a vast selection.  
+                        You can explore the world of cinema in a personalized way,
+                        building your own catalog of discoveries.
+                        But we're not just a platform; <strong>we're a community.</strong>
+                    </p>
+                    <p class="fst-italic" style="font-size: 17px; ">
+                        When you choose a movie to watch and your friends do the same, 
+                        you'll be able to create a shared list of movies together. 
+                        Discovering and savoring every cinematic moment together. 
+                        We aim to bring film lovers together and provide authentic experiences in the world of cinema.
                     </p>
                     <p class="fst-italic" style="font-size: 17px;">
-                        Connect with friends, discover common interests,
-                        and build a shared movie list.
-                    </p>
-                    <p class="fst-italic" style="font-size: 17px;">
-                        While you won't
-                        watch movies on our site, you'll create a cinematic
-                        haven where you can explore, connect, and share
-                        your love for films!
+                        <strong> Discover, connect, and share your passion for movies with us!</strong>
                     </p>
                 </div>
             </div>
