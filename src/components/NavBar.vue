@@ -16,6 +16,7 @@
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
           <li><a class="nav-link scrollto active" href="#people">People</a></li>
+          <li><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -30,6 +31,7 @@
 
       <AccountView/>
 
+      
     </div>
   </header><!-- End Header -->
 
