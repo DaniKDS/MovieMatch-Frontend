@@ -3,6 +3,7 @@
 import NavBar from './components/NavBar.vue'
 import HomeView from './components/HomeView.vue';
 import AboutView from './components/AboutView.vue';
+import PeopleView from './components/PeopleView.vue';
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import AboutView from './components/AboutView.vue';
        </div>
        <HomeView></HomeView>
        <AboutView></AboutView>
+       <PeopleView></PeopleView>
 </div>
 </template>
 
