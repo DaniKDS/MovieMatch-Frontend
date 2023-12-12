@@ -1769,3 +1769,188 @@ section {
 .swiper-button-prev {
   color: #cda45e;
 }
+
+/* ------Stilurile pentru offcanvas cu font negru----- */
+.offcanvas-end.custom-offcanvas .offcanvas-header {
+  background-color:#0c0b09;
+  color: white;
+}
+
+.offcanvas-end.custom-offcanvas .offcanvas-body {
+  background-color: #0c0b09;
+  color: #fff;
+}
+
+.offcanvas-end.custom-offcanvas .offcanvas-title {
+  color: #fff; 
+}
+
+/*----- Stiluri pentru clasa .contactCard------ */
+.contactCard {
+  background-color: #cda45e; 
+
+}
+
+/* -----Schimbarea culorii butonului de închidere (X) în alb -------*/
+.offcanvas button.btn-close::after {
+  color: white !important;
+}
+
+/*------- Butoane liste in Account -------*/
+.btn-outline-primary {
+  color: #fff; /* Culoarea textului butonului */
+  border-color: #cda45e; /* Culoarea border-ului butonului */
+}
+
+.btn-outline-primary:hover {
+  color: #0c0b09; /* Culoarea textului în stare de hover */
+  background-color: #cda45e; /* Culoarea de fundal în stare de hover */
+  border-color: #cda45e; /* Culoarea border-ului în stare de hover */
+}
+
+/* -----Log out button ----------------*/
+.log-out-button {
+  background-color: #cda45e; /* Culoarea de fundal dorită */
+  color: #0c0b09; /* Culoarea textului */
+  border: none; /* Eliminarea border-ului */
+  padding: 10px 20px; /* Stilizare padding */
+  border-radius: 5px; /* Stilizare border-radius */
+  cursor: pointer; /* Transformarea cursorului la interacțiunea cu butonul */
+}
+
+.log-out-button:hover {
+  background-color: #0c0b09; /* Culoarea de fundal în stare de hover */
+  color: #cda45e; /* Culoarea textului în stare de hover */
+}
+
+/* -------Arrow button --------*/
+.arrow {
+	--arrow-size: 1em;
+	--arrow-color: rgb(255,255,255);
+	--arrow-color-hover: rgba(255,255,255,0.5);
+	position: relative;
+	display: inline-flex;
+	vertical-align: middle;
+	width: var(--arrow-size);
+	height: var(--arrow-size);
+	overflow: hidden;
+	
+	&::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		box-sizing: border-box;
+		display: inline-block;
+		width: calc( var(--arrow-size) * .7071);
+		height: calc( var(--arrow-size) * .7071);
+		border-top: calc( var(--arrow-size) / 5 ) solid var(--arrow-color);
+		transition: all 150ms ease-in-out;
+	}
+	
+	&.left {
+		&::after {
+			left: calc( var(--arrow-size) / 5 );
+			border-left: calc( var(--arrow-size) / 5 ) solid var(--arrow-color);
+			transform-origin: top left;
+			rotate: -45deg;
+		}
+
+		&:hover::after {
+			box-shadow: calc( var(--arrow-size) / -8 ) calc( var(--arrow-size) / -8 ) 0 var(--arrow-color);
+		}
+	}
+
+	&.right {
+		&::after {
+			right: calc( var(--arrow-size) / 5 );
+			border-right: calc( var(--arrow-size) / 5 ) solid var(--arrow-color);
+			transform-origin: top right;
+			rotate: 45deg;
+		}
+
+		&:hover::after {
+			box-shadow: calc( var(--arrow-size) / 8 ) calc( var(--arrow-size) / -8 ) 0 var(--arrow-color);
+		}
+	}
+}
+
+a {
+	&:hover .arrow {
+		&.left,
+		&.right {
+			&::after {
+				border-color: var(--arrow-color-hover);
+			}
+		}
+
+		&.left {
+			&::after {
+				box-shadow: calc( var(--arrow-size) / -8 ) calc( var(--arrow-size) / -8 ) 0 var(--arrow-color);
+			}
+		}
+
+		&.right {
+			&::after {
+				box-shadow: calc( var(--arrow-size) / 8 ) calc( var(--arrow-size) / -8 ) 0 var(--arrow-color);
+			}
+		}
+	}
+}
+
+
+/* for demo only */
+html,
+body {
+	height: 100%;
+}
+
+body {
+
+	
+	> a .arrow {
+		--arrow-size: 3rem;
+	}
+}
+
+a {
+	color: skyblue;
+	text-decoration: none;
+	
+	&:hover {
+		color: white;
+	}
+}
+
+p a {
+	font-size: 1.25rem;
+}
+
+
+/*Close button */
+.close-x-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: white;
+  font-size: 50px;
+}
+
+.close-x-button:focus {
+  outline: none;
+}
+
+.close-x-button .bi-x {
+  color: white;
+}
+
+/* Stiluri personalizate pentru elementele listei de persoane*/
+.vertical-list .people-list-group-item {
+  border-color: #cda45e;
+  color: white;
+  background-color: #0c0b09;
+  position: relative;
+  padding: 10px 15px; /* Adaugare de spațiu interioară între elemente */
+  margin-bottom: 10px; /* Spațiu între elementele listei */
+  border-radius: 8px; /* Rotunjirea colțurilor */
+  max-width: 200px; /* Lungimea maximă a rândului */
+}
