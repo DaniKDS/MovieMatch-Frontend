@@ -1,4 +1,6 @@
-
+<script setup>
+  import AccountView from './AccountView.vue';
+</script>
 
 <template>
   <!-- ======= Header ======= -->
@@ -14,6 +16,8 @@
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
           <li><a class="nav-link scrollto active" href="#map">Map</a></li>
+          <li><a class="nav-link scrollto active" href="#people">People</a></li>
+          <li><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -25,8 +29,10 @@
 
       <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="modal"
         data-bs-target="#LogInModal" aria-controls="LogInModal">Log in</a>
-      
 
+      <AccountView/>
+
+      
     </div>
   </header><!-- End Header -->
 
