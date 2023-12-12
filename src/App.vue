@@ -3,6 +3,8 @@
 import NavBar from './components/NavBar.vue'
 import HomeView from './components/HomeView.vue';
 import AboutView from './components/AboutView.vue';
+import MapView from './components/MapView.vue';
+import CountryView from './components/CountryView.vue';
 </script>
 
 <template>
@@ -12,6 +14,8 @@ import AboutView from './components/AboutView.vue';
        </div>
        <HomeView></HomeView>
        <AboutView></AboutView>
+       <CountryView></CountryView>
+       <MapView></MapView>
 </div>
 </template>
 

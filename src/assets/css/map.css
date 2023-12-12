@@ -1,0 +1,68 @@
+html {
+	margin: 0;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.map-wrapper {
+	width: 100%;
+	background-color: #8ecae6;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 3rem;
+}
+
+#map {
+	width: 900px;
+	height: 600px;
+	background-color: #8ecae6;
+}
+
+.jqvmap-label {
+	position: absolute;
+	display: none;
+	border-radius: 3px;
+	background: #293241;
+	color: #fefae0;
+	font-family: sans-serif, Verdana;
+	font-size: 1rem;
+	padding: 3px;
+}
+
+.jqvmap-zoomin, .jqvmap-zoomout, .jqvmap-close {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 10px;
+	border-radius: 3px;
+	background: #1d3557;
+	padding: 0.25rem;
+	color: #fefae0;
+	cursor: pointer;
+	width: 1.5rem;
+	height: 1.5rem;
+	text-align: center;
+}
+
+.jqvmap-zoomin {
+	left: 10px;
+}
+
+.jqvmap-zoomout {
+	left: 40px;
+}
+
+.jqvmap-region {
+	cursor: pointer;
+}
+
+.jqvmap-ajax_response {
+	width: 100%;
+	height: 500px;
+}

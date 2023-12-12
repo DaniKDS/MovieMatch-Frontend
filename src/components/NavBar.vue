@@ -13,6 +13,7 @@
           <li><a class="nav-link scrollto active " href="#hero">Home</a></li>
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
+          <li><a class="nav-link scrollto active" href="#map">Map</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
