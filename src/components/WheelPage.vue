@@ -158,6 +158,10 @@ export default {
         container.on("click", spin);
         function spin(d){
           container.on("click", null);
+
+          d3.select("#question h1")
+            .text("Spinning...");
+
           if(oldpick.length == data.length){
             console.log("done");
             container.on("click", null);
@@ -181,15 +185,14 @@ export default {
             .each("end", function(){
               d3.select(".slice:nth-child(" + (picked + 1) + ") path")
                 .attr("fill", "#111");
-              // Setează întrebarea curentă după terminarea animației
+
               setTimeout(function () {
                 d3.select("#question h1")
                   .text(data[picked].label + ": " + data[picked].question);
               }, 500);
+
               oldrotation = rotation;
-              /* Get the result value from object "data" */
               console.log(data[picked].value)
-              /* Comment the below line for restrict spin to single time */
               container.on("click", spin);
             });
         }
@@ -217,6 +220,7 @@ export default {
           };
         }
       `;
+
       const script = document.createElement('script');
       script.appendChild(document.createTextNode(jsScript));
       document.body.appendChild(script);
