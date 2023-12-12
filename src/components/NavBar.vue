@@ -13,6 +13,7 @@
           <li><a class="nav-link scrollto active " href="#hero">Home</a></li>
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
+          <li><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -24,8 +25,8 @@
 
       <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="modal"
         data-bs-target="#LogInModal" aria-controls="LogInModal">Log in</a>
-      
 
+      
     </div>
   </header><!-- End Header -->
 
