@@ -1832,3 +1832,33 @@ a {
 p a {
 	font-size: 1.25rem;
 }
+
+
+/*Close button */
+.close-x-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: white;
+  font-size: 50px;
+}
+
+.close-x-button:focus {
+  outline: none;
+}
+
+.close-x-button .bi-x {
+  color: white;
+}
+
+/* Stiluri personalizate pentru elementele listei de persoane*/
+.vertical-list .people-list-group-item {
+  border-color: #cda45e;
+  color: white;
+  background-color: #0c0b09;
+  position: relative;
+  padding: 10px 15px; /* Adaugare de spațiu interioară între elemente */
+  margin-bottom: 10px; /* Spațiu între elementele listei */
+  border-radius: 8px; /* Rotunjirea colțurilor */
+  max-width: 200px; /* Lungimea maximă a rândului */
+}
