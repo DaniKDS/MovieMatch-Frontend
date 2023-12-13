@@ -7,7 +7,7 @@
         <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="account" aria-labelledby="accountLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title text-center" id="accountLabel" style="font-size: 35px;">
-                <i class="bi bi-person"></i> Hi, ... !
+                <i class="bi bi-person"></i> Hi, {{ current_user.username }} !
             </h5>
             <button class="close-x-button" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="bi bi-x"></i>
@@ -18,9 +18,9 @@
                   <div class="card-body">
                       <p><i>Date de contact</i></p>
                       <p>
-                          <br>Name: 
-                          <br>Prenume:
-                          <br>Email: 
+                          <br>Name: {{ current_user.numeUtilizator }}
+                          <br>Prenume: {{ current_user.prenumeUtilizator }}
+                          <br>Email: {{ current_user.email }}
                       </p>
                   </div>
               </div>
@@ -46,7 +46,7 @@
             <ul class="list-group list-group-flush" style="text-align: left;">
               <li v-for="prieten in prieteni" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
                 {{ prieten.numeUtilizator }} {{ prieten.prenumeUtilizator }}
-                <button type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#DeleteFriendshipModal" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">
+                <button  type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#DeleteFriendshipModal" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">
                   Delete
                 </button>
                 </li>
@@ -68,11 +68,12 @@
               <li v-for="cerere in cereri" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; display: flex; justify-content: space-between; align-items: center;">
                  {{ cerere.numeUtilizator }} {{ cerere.prenumeUtilizator }}
                 <div>
-                    <button type="button" class="log-out-button accept-button" style="margin-right: 5px; padding: 5px 10px; font-size: 12px; height: 25px;">
+                    <button @click="accept_cerere(cerere.idUtilizator)" type="button"  class="log-out-button accept-button" style="margin-right: 5px; padding: 5px 10px; font-size: 12px; height: 25px;">
                         <i class="bi bi-check-lg" style="color: white;"></i>
                         Confirm
+                        
                     </button>
-                    <button type="button" class="log-out-button delete-button" style="padding: 5px 10px; font-size: 12px; height: 25px;">
+                    <button @click="reject_cerere(cerere.idUtilizator)" type="button" class="log-out-button delete-button" style="padding: 5px 10px; font-size: 12px; height: 25px;">
                         <i class="bi bi-x-lg" style="color: white;"></i>
                         Delete
                     </button>
@@ -80,18 +81,6 @@
               </li>
             </ul>
 
-          </div>
-        </div>
-
-        <!-- Modal for deleted friendship-->
-        <div class="modal fade" id="DeleteFriendshipModal" tabindex="-1" aria-labelledby="DeleteFriendshipModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
-            <div class="modal-content" style="color: #cda45e; border: 2px solid #cda45e; background: #0c0b09;">
-              <div class="modal-body text-center">
-                <div style="margin-bottom: 10px;">The deletion of the friendship was done successfully!</div>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #0c0b09; border: 1px solid #cda45e;">Ok</button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -120,6 +109,12 @@ export default {
     },
     afisare_cereri(){
       axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data})
+    },
+    accept_cerere(id){
+      axios.post(`/api/cerere_prietenie/accept/${id}`).then(this.afisare_cereri())
+    },
+    reject_cerere(id){
+      axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri())
     }
   },
   created() {
