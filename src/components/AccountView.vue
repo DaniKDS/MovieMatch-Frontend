@@ -46,7 +46,7 @@
             <ul class="list-group list-group-flush" style="text-align: left;">
               <li v-for="prieten in prieteni" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
                 {{ prieten.numeUtilizator }} {{ prieten.prenumeUtilizator }}
-                <button  type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#DeleteFriendshipModal" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">
+                <button @click="sterge_prieten(prieten.idUtilizator)" type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#DeleteFriendshipModal" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">
                   Delete
                 </button>
                 </li>
@@ -115,6 +115,10 @@ export default {
     },
     reject_cerere(id){
       axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri())
+    },
+    sterge_prieten(id){
+      axios.post(`/api/stergere_prieten/${id}`).then(this.update_prieteni())
+
     }
   },
   created() {
