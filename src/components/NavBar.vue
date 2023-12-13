@@ -15,6 +15,9 @@
           <li><a class="nav-link scrollto active " href="#hero">Home</a></li>
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
+          <li><a class="nav-link scrollto active" href="#map">Map</a></li>
+          <li><a class="nav-link scrollto active" href="#people">People</a></li>
+          <li><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="#people">People</a></li>
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
         </ul>

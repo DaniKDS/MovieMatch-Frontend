@@ -5,6 +5,8 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+import Swiper from 'swiper';
 (function() {
   "use strict";
 

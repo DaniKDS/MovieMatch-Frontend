@@ -1676,7 +1676,123 @@ section {
   font-size: 13px;
   color: #fff;
 }
+/*--------------------------------------------------------------
+# Country Section
+--------------------------------------------------------------*/
+#country {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  position: relative;
+  padding: 0;
+}
 
+#country:before {
+  content: "";
+  /*background: rgba(0, 0, 0, 0.5);*/
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#country .container {
+  background-image: url('../img/background/bluebackground.jpg');
+  width: 100%; /* Modificați lățimea containerului */
+  height: 600px; /* Modificați înălțimea containerului */
+  background-size: cover;
+  background-position: center;
+  margin-top: 14%;
+}
+
+@media (max-width: 992px) {
+  #country .container {
+    height: 300px; 
+    background-size: cover;
+  }
+}
+
+.slide-container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 10px 40px;
+}
+
+.movie-card2 {
+  position: relative;
+  border-radius: 25px;
+  max-width: 200px;
+  max-height: 300px;
+  background-color: #000000;
+  background-position: center;
+}
+
+.movie-card2 img{
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 0px solid rgba(205, 164, 94, 0.2);
+    transition: 0.4s ease ;
+}
+
+.movie-card2:hover img{
+  opacity: 0.2;
+  transition: 0.4s ease;
+}
+
+.overlay {
+  position: absolute;
+  color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  transition: .5s ease;
+  z-index: 3;
+}
+
+.overlay i{
+  cursor: pointer;
+}
+
+.movie-card2:hover .overlay {
+  opacity: 1;
+}
+
+.swx {
+  color: #cda45e;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.swx:hover {
+  opacity: 1;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
 
 /* ------Stilurile pentru offcanvas cu font negru----- */
 .offcanvas-end.custom-offcanvas .offcanvas-header {
