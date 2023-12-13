@@ -19,6 +19,9 @@ import WheelPage from './components/WheelPage.vue'
        <PeopleView></PeopleView>
        <MapView></MapView>
        <WheelPage></WheelPage>
+
+       <div v-if="current_user.email != null"><PeopleView></PeopleView></div>
+       <div v-if="current_user.email != null"><WheelPage></WheelPage></div>
        
 </div>
 </template>
