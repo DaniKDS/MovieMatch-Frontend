@@ -42,3 +42,24 @@ import WheelPage from './components/WheelPage.vue'
   flex-direction: column;
 }
 </style>
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      current_user: {
+        "numeUtilizator": null, 
+        "prenumeUtilizator": null, 
+        "username": null, 
+        "email": null
+      },
+    }
+  },
+  methods: {
+  },
+  created() {
+    axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data})
+  }
+}
+</script>
