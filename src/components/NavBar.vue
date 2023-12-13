@@ -26,7 +26,7 @@
         <a class="book-a-table-btn scrollto d-none d-lg-flex"  type="submit"><i class="bi bi-search"></i></a>
       </form>
 
-      <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="modal"
+      <a v-if="current_user.email == null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="modal"
         data-bs-target="#LogInModal" aria-controls="LogInModal">Log in</a>
 
       <AccountView/>
@@ -36,7 +36,7 @@
   </header><!-- End Header -->
 
    <!-- Modalul de Log in din NavBar-->
-   <div class="modal fade" id="LogInModal" tabindex="-1" aria-labelledby="LogInModalLabel" aria-hidden="true">
+   <div  class="modal fade" id="LogInModal" tabindex="-1" aria-labelledby="LogInModalLabel" aria-hidden="true">
           <div class="modal-dialog  modal-dialog-centered ">
             <div class="modal-content" style="  color: #E9CC6D; border: 2px solid #001540;">
               <div class="modal-header">
@@ -46,7 +46,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" style="background-color: #001540; border: black;"><i
-                    class="bi bi-google"><a href='/oauth2/authorization/google'>Log in with Google account</a></i> </button>
+                    class="bi bi-google"><a  href='/oauth2/authorization/google'>Log in with Google account</a></i> </button>
               </div>
             </div>
           </div>

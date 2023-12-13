@@ -65,8 +65,8 @@
           <div class="offcanvas-body text-center">
             
             <ul class="list-group list-group-flush" style="text-align: left;">
-              <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; display: flex; justify-content: space-between; align-items: center;">
-                <span> TEST TEST </span>
+              <li v-for="cerere in cereri" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; display: flex; justify-content: space-between; align-items: center;">
+                 {{ cerere.numeUtilizator }} {{ cerere.prenumeUtilizator }}
                 <div>
                     <button type="button" class="log-out-button accept-button" style="margin-right: 5px; padding: 5px 10px; font-size: 12px; height: 25px;">
                         <i class="bi bi-check-lg" style="color: white;"></i>
@@ -111,16 +111,22 @@ export default {
         "email": null
       },
       prieteni: [],
+      cereri: [],
     }
   },
   methods: {
     update_prieteni(){
       axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data})
     },
+    afisare_cereri(){
+      axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data})
+    }
   },
   created() {
     axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
     this.update_prieteni();
+    this.afisare_cereri();
   }
 }
 </script>
+
