@@ -15,8 +15,8 @@
           <li><a class="nav-link scrollto active " href="#hero">Home</a></li>
           <li><a class="nav-link scrollto active" href="#about">About</a></li>
           <li><a class="nav-link scrollto active">Movies</a></li>
-          <li><a class="nav-link scrollto active" href="#people">People</a></li>
-          <li><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="#people">People</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="#wheel-page">Wheel</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
         
@@ -46,7 +46,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" style="background-color: #001540; border: black;"><i
-                    class="bi bi-google"></i> Log in with Google account</button>
+                    class="bi bi-google"><a href='/oauth2/authorization/google'>Log in with Google account</a></i> </button>
               </div>
             </div>
           </div>
@@ -54,3 +54,25 @@
 </template>
 
 
+
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      current_user: {
+        "numeUtilizator": null, 
+        "prenumeUtilizator": null, 
+        "username": null, 
+        "email": null
+      },
+    }
+  },
+  methods: {
+  },
+  created() {
+    axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data})
+  }
+}
+</script>

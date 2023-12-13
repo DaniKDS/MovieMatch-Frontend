@@ -14,23 +14,14 @@
             <!-- Lista -->
             <div class="vertical-list">
               <ul class="list-group" style="text-align: left; ">
-
-                <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; width: 800px;">
-                  <span style="float: left;">Avram Ana</span>
-                  <button type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#RequestModal" style="float: right; padding: 5px 10px; font-size: 12px; height: 25px;">
+                
+                <li v-for="inamic in inamici" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; width: 800px;">
+                  <span style="float: left;">{{ inamic.numeUtilizator }} {{ inamic.prenumeUtilizator }}</span>
+                  <button @click="trimite_cerere(inamic.idUtilizator)" type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#RequestModal" style="float: right; padding: 5px 10px; font-size: 12px; height: 25px;">
                     <i class="bi bi-person-plus-fill" style="color: white;"></i> Send a friend request
                   </button>
                   <div style="clear: both;"></div>
                 </li>
-
-                <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; width: 800px;">
-                  <span style="float: left;">Gora Marin</span>
-                  <button type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#RequestModal" style="float: right; padding: 5px 10px; font-size: 12px; height: 25px;">
-                    <i class="bi bi-person-plus-fill" style="color: white;"></i> Send a friend request
-                  </button>
-                  <div style="clear: both;"></div>
-                </li>
-
               </ul>
             </div>
           </div>
@@ -52,3 +43,26 @@
 
   </section><!-- End Home -->
 </template>
+
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      inamici: [],
+    }
+  },
+  methods: {
+    update_inamici(){
+      axios.get("/api/afisare_inamici").then(response => {this.inamici=response.data})
+    },
+    trimite_cerere(id){
+      axios.post(`/api/cerere_prietenie/send/${id}`).then(this.update_inamici())
+    }
+  },
+  created() {
+    this.update_inamici()
+  }
+}
+</script>

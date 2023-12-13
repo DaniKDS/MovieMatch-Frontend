@@ -1,6 +1,7 @@
 <template>
   <div class="container-account">
-    <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">Account</a>
+
+    <a v-if="current_user.email != null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">Account</a>
 
         <!--Offcanvas-ul pentru Account-->
         <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="account" aria-labelledby="accountLabel">
@@ -27,7 +28,7 @@
               <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#friendsListOffcanvas" style="position: absolute; bottom: 35%; left: 50%; transform: translateX(-50%);">Friends list</button>
               <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#friendRequestOffcanvas" style="position: absolute; bottom: 45%; left: 50%; transform: translateX(-50%);">Friend requests list</button>
 
-              <button type="button" class="log-out-button" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); ">Log out</button>
+              <button type="button" class="log-out-button" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); "><a href='/logout'>Log out</a></button>
             </div>
         
         </div>
@@ -43,24 +44,12 @@
           <div class="offcanvas-body text-center">
 
             <ul class="list-group list-group-flush" style="text-align: left;">
-              <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
-                Ana Chira
+              <li v-for="prieten in prieteni" class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
+                {{ prieten.numeUtilizator }} {{ prieten.prenumeUtilizator }}
                 <button type="button" class="log-out-button accept-button" data-bs-toggle="modal" data-bs-target="#DeleteFriendshipModal" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">
                   Delete
                 </button>
-                
-                <!--<button type="button" class="log-out-button" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">Delete</button>
-                  -->
                 </li>
-              <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
-                Matei Duma
-                <button type="button" class="log-out-button" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">Delete</button>
-              </li>
-              <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative;">
-                Trif Alin
-                <button type="button" class="log-out-button" style="position: absolute; right: 5px; top: 50%; transform: translateY(-50%); padding: 5px 10px; font-size: 12px; height: 25px;">Delete</button>
-              </li>
-
           </ul>
           </div>
         </div>
@@ -77,21 +66,8 @@
             
             <ul class="list-group list-group-flush" style="text-align: left;">
               <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; display: flex; justify-content: space-between; align-items: center;">
-                <span>Bogdan Sur</span>
+                <span> TEST TEST </span>
                 <div>
-                    <button type="button" class="log-out-button accept-button" style="margin-right: 5px; padding: 5px 10px; font-size: 12px; height: 25px;">
-                        <i class="bi bi-check-lg" style="color: white;"></i>
-                        Confirm
-                    </button>
-                    <button type="button" class="log-out-button delete-button" style="padding: 5px 10px; font-size: 12px; height: 25px;">
-                        <i class="bi bi-x-lg" style="color: white;"></i>
-                        Delete
-                    </button>
-                </div>
-              </li>
-              <li class="list-group-item" style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-                <span style="flex: 1; margin-right: 10px;">Toma Marin Iosif Aurel Florin</span>
-                <div style="display: flex;">
                     <button type="button" class="log-out-button accept-button" style="margin-right: 5px; padding: 5px 10px; font-size: 12px; height: 25px;">
                         <i class="bi bi-check-lg" style="color: white;"></i>
                         Confirm
@@ -122,3 +98,29 @@
   </div>
 
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+  data() {
+    return {
+      current_user: {
+        "numeUtilizator": null, 
+        "prenumeUtilizator": null, 
+        "username": null, 
+        "email": null
+      },
+      prieteni: [],
+    }
+  },
+  methods: {
+    update_prieteni(){
+      axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data})
+    },
+  },
+  created() {
+    axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
+    this.update_prieteni();
+  }
+}
+</script>
