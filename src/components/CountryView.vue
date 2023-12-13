@@ -57,9 +57,90 @@
                     This influence of the country on the artistic process manifests in various ways, from narrative and aesthetic choices to the subjects and themes addressed.
                 </p>
             </div>
-        </div>
-      </div>
-    </div>
+          </div>
+          <div class="container-fluid" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="swiper slide-container">
+                        <div class="swiper-wrapper">
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster.jpg" alt="">
+                                    <div class="overlay">
+                                        <h1>The title of the movie
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster1.jpg" alt="">
+                                    <div class="overlay">
+                                        <h1>Movie Title
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster2.jpg" alt="">
+                                    <div class="overlay">
+                                        <h1>Movie Title
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster3.jpg" alt="">
+                                    <div class="overlay">
+                                        <h1>Movie Title
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster4.webp" alt="">
+                                    <div class="overlay">
+                                        <h1>Movie Title
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>
+                            <swiper-slide>
+                                <div class="movie-card2">
+                                    <img src="../assets/img/poster.jpg" alt="">
+                                    <div class="overlay">
+                                        <h1>Movie Title
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                                <i class="bi bi-info-circle-fill"></i>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </swiper-slide>  
+                        </div>
+                        <div class="swx swiper-button-prev">&#8249;</div>
+                        <div class="swx swiper-button-next">&#8250;</div>
+                    </div>
+                    
+                </div>        
+        </div> 
+      </div>       
   </section><!-- End Country Section -->
 </template>
 
@@ -67,8 +148,10 @@
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+//import 'swiper/css/pagination';
+//import { Pagination } from 'swiper/modules';
+
+
 
 export default {
   components: {
@@ -77,7 +160,7 @@ export default {
     },
     setup() {
       return {
-        modules: [Pagination],
+        //modules: [Pagination],
       };
     },
   data() {

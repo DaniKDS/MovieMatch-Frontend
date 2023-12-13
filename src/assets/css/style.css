@@ -1681,7 +1681,7 @@ section {
 --------------------------------------------------------------*/
 #country {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
   position: relative;
   padding: 0;
@@ -1711,6 +1711,12 @@ section {
     height: 300px; 
     background-size: cover;
   }
+}
+
+.slide-container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 10px 40px;
 }
 
 .movie-card2 {
@@ -1762,12 +1768,30 @@ section {
   opacity: 1;
 }
 
-.swiper-button-next {
+.swx {
   color: #cda45e;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+.swx:hover {
+  opacity: 1;
+}
+
+.swiper-button-next {
+  right: 0;
 }
 
 .swiper-button-prev {
-  color: #cda45e;
+  left: 0;
 }
 
 /* ------Stilurile pentru offcanvas cu font negru----- */
