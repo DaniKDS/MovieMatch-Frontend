@@ -171,17 +171,16 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(12, 11, 9, 0.6);
+  background: rgba(12, 11, 9, 0.9);
   border-bottom: 1px solid rgba(12, 11, 9, 0.6);
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  top: 40px;
 }
 
 #header.header-scrolled {
   top: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid #37332a;
 }
 
@@ -459,6 +458,7 @@ h6 {
   background-size: cover;
   position: relative;
   padding: 0;
+  top: -5px;
 }
 
 #hero:before {
@@ -471,10 +471,12 @@ h6 {
   right: 0;
 }
 
-#hero .container {
+#hero .main-container {
   background-image: url('../img/movie.jpg');
   width: 100%; /* Modificați lățimea containerului */
-  height: 600px; /* Modificați înălțimea containerului */
+  height: 100%; /* Modificați înălțimea containerului */
+  padding: 0;
+  margin: 0;
   background-size: cover;
   background-position: center;
   margin-top: 14%;
@@ -520,6 +522,7 @@ h6 {
   display: inline-block;
   padding: 12px 30px;
   border-radius: 50px;
+  transform: translateY(270px);
   transition: 0.3s;
   line-height: 1;
   color: white;
@@ -1681,6 +1684,20 @@ section {
   background-color: #0b182b;
 }
 
+.weekly-movies-section{
+  margin-top: 120px;
+  background-color: #040911;
+  height: 700px;
+}
+
+.movieTab p{
+  margin-bottom: 20px;
+}
+
+.movieTab h2{
+  margin-bottom: 20px;
+}
+
 .slide-container {
   max-width: 1120px;
   width: 100%;
@@ -1691,15 +1708,15 @@ section {
 .movie-card {
   position: relative;
   border-radius: 25px;
-  width: 300px;
-  height: 400px;
+  max-width: 300px;
+  max-height: 400px;
   background-color: #000000;
   background-position: center;
 }
 
 .movie-card img{
     width: 100%;
-    height: 100%;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 25px;
     border: 4px solid rgba(205, 164, 94, 0.2);
@@ -1805,3 +1822,116 @@ section {
   padding-left: 0px;
   padding-right: 0px;
 }
+
+
+.to-be-watched p {
+  margin-bottom: 20px;
+}
+
+.to-be-watched .modal-dialog {
+  max-width: 60%;
+}
+
+.your-movies{
+  background-color: #0b182b;
+  margin-top: 120px;
+}
+
+.to-be-watched {
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.already-watched{
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.shared-lists{
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.to-be-watched-btn {
+  color: #cda45e;
+}
+
+.already-watched-btn{
+  color: #cda45e;
+}
+
+.shared-list-btn{
+  color: #cda45e;
+}
+
+.to-be-watched-btn:hover{
+  color: white;
+}
+
+.already-watched-btn:hover{
+  color: white;
+}
+
+.shared-list-btn:hover{
+  color: white;
+}
+
+.already-watched:hover{
+  background-color: #cda45e;
+}
+
+.to-be-watched:hover{
+  background-color: #cda45e;
+}
+
+.shared-lists:hover{
+  background-color: #cda45e;
+}
+
+.to-be-watched-tab{
+  color: white;
+}
+
+.already-watched-tab{
+  color: white;
+}
+
+.shared-lists-tab{
+  color: white;
+}
+
+.your-movies .modal-dialog {
+  max-width: 60%;
+}
+
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+  }
+}
+
+.friends-button{
+  border-radius: 50%;
+  background-color: #18d26e;
+  height: 50px;
+  width: 50px;
+}
+
+.friend-profile-pic{
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+}
+
+.friend-profile {
+  width: 70px;
+}
+
+.your-movies li{
+  padding: 0;
+}
+
+
+
+

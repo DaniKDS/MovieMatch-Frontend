@@ -4,9 +4,16 @@ import "./assets/css/style.css";
 import { createApp } from 'vue'
 import App from './App.vue'
 import Swiper from 'swiper/bundle';
+import router from './router/router.js'
 
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+app.use(router);
+
+app.mount('#app');
+
+
 
 var swiper = new Swiper(".slide-container", {
     slidesPerView: 1,

@@ -3,21 +3,13 @@
 import NavBar from './components/NavBar.vue'
 import HomeView from './components/HomeView.vue';
 import AboutView from './components/AboutView.vue';
-import MoviesView from './components/MoviesView.vue';
 import Footer from './components/Footer.vue';
 </script>
 
 <template>
-   <div class="container-fluid">
-      <div class="row">
-        <NavBar></NavBar>
-       </div>
-       <HomeView></HomeView>
-       <AboutView></AboutView>
-       <MoviesView></MoviesView>
-       <Footer></Footer>
-</div>
+  <router-view></router-view>
 </template>
+
 
 <style >
 @import "bootstrap/dist/css/bootstrap.css";
