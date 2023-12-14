@@ -15,11 +15,8 @@ import WheelPage from './components/WheelPage.vue'
        </div>
        <HomeView></HomeView>
        <AboutView></AboutView>
-       <CountryView></CountryView>
-       <PeopleView></PeopleView>
-       <MapView></MapView>
-       <WheelPage></WheelPage>
-
+       <div v-if="current_user.email != null"><CountryView></CountryView></div>
+       <div v-if="current_user.email != null"><MapView></MapView></div>
        <div v-if="current_user.email != null"><PeopleView></PeopleView></div>
        <div v-if="current_user.email != null"><WheelPage></WheelPage></div>
        

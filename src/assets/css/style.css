@@ -344,6 +344,22 @@ h6 {
   }
 }
 
+/* -----search button ----------------*/
+.search-button {
+  background-color: #cda45e; /* Culoarea de fundal dorită */
+  color: #0c0b09; /* Culoarea textului */
+  border: none; /* Eliminarea border-ului */
+  padding: 10px 20px; /* Stilizare padding */
+  margin-left: 10px; 
+  border-radius: 5px; /* Stilizare border-radius */
+  cursor: pointer; /* Transformarea cursorului la interacțiunea cu butonul */
+}
+
+.search-button:hover {
+  background-color: #0c0b09; /* Culoarea de fundal în stare de hover */
+  color: #cda45e; /* Culoarea textului în stare de hover */
+}
+
 /**
 * Mobile Navigation 
 */
