@@ -7,7 +7,7 @@
         <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="account" aria-labelledby="accountLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title text-center" id="accountLabel" style="font-size: 35px;">
-                <i class="bi bi-person"></i> Hi, {{ current_user.username }} !
+                <i class="bi bi-person"></i> Hi, {{ current_user.prenumeUtilizator }} !
             </h5>
             <button class="close-x-button" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="bi bi-x"></i>
@@ -16,10 +16,10 @@
             <div class="offcanvas-body text-center">
               <div class="card contactCard">
                   <div class="card-body">
-                      <p><i>Date de contact</i></p>
+                      <p><i>My profile</i></p>
                       <p>
                           <br>Name: {{ current_user.numeUtilizator }}
-                          <br>Prenume: {{ current_user.prenumeUtilizator }}
+                          <br>Surname: {{ current_user.prenumeUtilizator }}
                           <br>Email: {{ current_user.email }}
                       </p>
                   </div>

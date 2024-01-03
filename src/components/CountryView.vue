@@ -60,22 +60,10 @@
           </div>
           <div class="container-fluid" data-aos="zoom-in" data-aos-delay="200">
                     <div class="swiper slide-container">
-                        <div class="swiper-wrapper">
+                        <div class="swiper-wrapper"> 
                             <swiper-slide>
                                 <div class="movie-card2">
-                                    <img src="../assets/img/poster.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>The title of the movie
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster1.jpg" alt="">
+                                    <img :src="getCountryMoviePath1()" alt="">
                                     <div class="overlay">
                                         <h1>Movie Title
                                             <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
@@ -87,7 +75,7 @@
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="movie-card2">
-                                    <img src="../assets/img/poster2.jpg" alt="">
+                                    <img :src="getCountryMoviePath2()" alt="">
                                     <div class="overlay">
                                         <h1>Movie Title
                                             <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
@@ -99,7 +87,7 @@
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="movie-card2">
-                                    <img src="../assets/img/poster3.jpg" alt="">
+                                    <img :src="getCountryMoviePath3()" alt="">
                                     <div class="overlay">
                                         <h1>Movie Title
                                             <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
@@ -111,7 +99,7 @@
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="movie-card2">
-                                    <img src="../assets/img/poster4.webp" alt="">
+                                    <img :src="getCountryMoviePath4()" alt="">
                                     <div class="overlay">
                                         <h1>Movie Title
                                             <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
@@ -123,7 +111,7 @@
                             </swiper-slide>
                             <swiper-slide>
                                 <div class="movie-card2">
-                                    <img src="../assets/img/poster.jpg" alt="">
+                                    <img :src="getCountryMoviePath5()" alt="">
                                     <div class="overlay">
                                         <h1>Movie Title
                                             <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
@@ -132,7 +120,7 @@
                                         </h1>
                                     </div>
                                 </div>
-                            </swiper-slide>  
+                            </swiper-slide>
                         </div>
                         <div class="swx swiper-button-prev">&#8249;</div>
                         <div class="swx swiper-button-next">&#8250;</div>
@@ -166,11 +154,41 @@ export default {
   data() {
     return {
       baseUrl: "../src/assets/img/countries/", // Base URL for country images
+      baseUrl2: "../src/assets/img/movies/", // Base URL for movie images
+      baseUrl3: "../src/assets/img/movies1/", // Base URL for country images
+      baseUrl4: "../src/assets/img/movies2/", // Base URL for country images
+      baseUrl5: "../src/assets/img/movies3/", // Base URL for country images
+      baseUrl6: "../src/assets/img/movies4/", // Base URL for country images
     };
   },
   methods: {
     getCountryImagePath() {
       const path = this.baseUrl + this.isoCode + ".webp"; // Concatenate base URL with ISO code
+      console.log(path)
+      return path;
+    },
+    getCountryMoviePath1() {
+      const path = this.baseUrl2 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
+      console.log(path)
+      return path;
+    },
+    getCountryMoviePath2() {
+      const path = this.baseUrl3 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
+      console.log(path)
+      return path;
+    },
+    getCountryMoviePath3() {
+      const path = this.baseUrl4 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
+      console.log(path)
+      return path;
+    },
+    getCountryMoviePath4() {
+      const path = this.baseUrl5 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
+      console.log(path)
+      return path;
+    },
+    getCountryMoviePath5() {
+      const path = this.baseUrl6 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
       console.log(path)
       return path;
     },
@@ -426,6 +444,16 @@ export default {
         "zw": "Zimbabwe"
     };
       return countryNames[this.isoCode] || "Unknown";
+    },
+    countryMovies() {
+      // Logic to get country name based on ISO code if needed
+      // Replace this with your logic to fetch country names
+      // For example:
+      const countryMovies= {
+        "ro": "Romania"
+
+    };
+      return countryMovies[this.isoCode] || "Unknown";
     },
     countryDescription(){
       const countryDescriptions = {

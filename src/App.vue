@@ -3,27 +3,16 @@ import NavBar from './components/NavBar.vue';
 import HomeView from './components/HomeView.vue';
 import AboutView from './components/AboutView.vue';
 import MapView from './components/MapView.vue';
-import CountryView from './components/CountryView.vue';
-import PeopleView from './components/PeopleView.vue'
+// import CountryView from './components/countryview.vue';
+// import PeopleView from './components/PeopleView.vue'
 import WheelPage from './components/WheelPage.vue'
+import Footer from './components/Footer.vue'
+import Movies from './pages/MoviePage.vue'
+import YourMovies from './pages/YourMoviesPage.vue'
 </script>
 
 <template>
-   <div class="container-fluid">
-      <div class="row">
-        <NavBar></NavBar>
-       </div>
-       <HomeView></HomeView>
-       <AboutView></AboutView>
-       <CountryView></CountryView>
-       <PeopleView></PeopleView>
-       <MapView></MapView>
-       <WheelPage></WheelPage>
-
-       <div v-if="current_user.email != null"><PeopleView></PeopleView></div>
-       <div v-if="current_user.email != null"><WheelPage></WheelPage></div>
-       
-</div>
+  <router-view></router-view>
 </template>
 
 <style>

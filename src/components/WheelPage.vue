@@ -1,5 +1,5 @@
 <template>
-  <div id="wheel-page">
+  <div id="wheel">
     <div id="chart-container">
       <div id="chart"></div>
       <div id="question">
