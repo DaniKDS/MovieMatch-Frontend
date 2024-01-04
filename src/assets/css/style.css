@@ -1978,3 +1978,276 @@ p a {
   border-radius: 8px; /* Rotunjirea colțurilor */
   max-width: 200px; /* Lungimea maximă a rândului */
 }
+
+/* -----search button ----------------*/
+.search-button {
+  background-color: #cda45e; /* Culoarea de fundal dorită */
+  color: #0c0b09; /* Culoarea textului */
+  border: none; /* Eliminarea border-ului */
+  padding: 10px 20px; /* Stilizare padding */
+  margin-left: 10px; 
+  border-radius: 5px; /* Stilizare border-radius */
+  cursor: pointer; /* Transformarea cursorului la interacțiunea cu butonul */
+}
+
+.search-button:hover {
+  background-color: #0c0b09; /* Culoarea de fundal în stare de hover */
+  color: #cda45e; /* Culoarea textului în stare de hover */
+}
+
+
+/* ----------- Footer + de la Maria ------- */
+.movieTab {
+  background-color: #0b182b;
+}
+
+.weekly-movies-section{
+  margin-top: 120px;
+  background-color: #040911;
+  height: 700px;
+}
+
+.movieTab p{
+  margin-bottom: 20px;
+}
+
+.movieTab h2{
+  margin-bottom: 20px;
+}
+
+.slide-container {
+  max-width: 1120px;
+  width: 100%;
+
+  padding: 40px;
+}
+
+.movie-card {
+  position: relative;
+  border-radius: 25px;
+  max-width: 300px;
+  max-height: 400px;
+  background-color: #000000;
+  background-position: center;
+}
+
+.movie-card img{
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 4px solid rgba(205, 164, 94, 0.2);
+    transition: 0.4s ease ;
+}
+
+.movie-card:hover img{
+  opacity: 0.2;
+  transition: 0.4s ease;
+}
+
+.overlay {
+  position: absolute;
+  color: white;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  transition: .5s ease;
+  z-index: 3;
+}
+
+.overlay i{
+  cursor: pointer;
+}
+
+.movie-card:hover .overlay {
+  opacity: 1;
+}
+
+.swiper-button-next {
+  color: #cda45e;
+}
+
+.swiper-button-prev {
+  color: #cda45e;
+}
+
+.movieTab .modal-dialog {
+  max-width: 60%;
+}
+
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+  }
+}
+
+.modal-header {
+  border: none;
+  padding: 20px 20px 0px 20px;
+}
+
+.modal-header .close-button { 
+  font-size: 50px;
+  color: white;
+}
+
+
+.movie-image {
+  border-radius: 15px;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-footer{
+  border: none;
+  margin: 0px 20px 20px 20px;
+}
+
+.about-movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px;
+  font-size: 20px;
+}
+
+
+.fade_rule {
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #cda45e, rgba(255, 255, 255, 0));
+
+}
+
+.footer {
+  background-color: #040911;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Extinde chenarul la lățimea completă a paginii */
+  box-sizing: border-box; /* Asigură că lățimea include și marginile și padding-urile */
+ 
+}
+
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+.to-be-watched p {
+  margin-bottom: 20px;
+}
+
+.to-be-watched .modal-dialog {
+  max-width: 60%;
+}
+
+.your-movies{
+  background-color: #0b182b;
+  margin-top: 120px;
+}
+
+.to-be-watched {
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.already-watched{
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.shared-lists{
+  background-color: #040911;
+  transition: 0.5s;
+}
+
+.to-be-watched-btn {
+  color: #cda45e;
+}
+
+.already-watched-btn{
+  color: #cda45e;
+}
+
+.shared-list-btn{
+  color: #cda45e;
+}
+
+.to-be-watched-btn:hover{
+  color: white;
+}
+
+.already-watched-btn:hover{
+  color: white;
+}
+
+.shared-list-btn:hover{
+  color: white;
+}
+
+.already-watched:hover{
+  background-color: #cda45e;
+}
+
+.to-be-watched:hover{
+  background-color: #cda45e;
+}
+
+.shared-lists:hover{
+  background-color: #cda45e;
+}
+
+.to-be-watched-tab{
+  color: white;
+}
+
+.already-watched-tab{
+  color: white;
+}
+
+.shared-lists-tab{
+  color: white;
+}
+
+.your-movies .modal-dialog {
+  max-width: 60%;
+}
+
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+  }
+}
+
+.friends-button{
+  border-radius: 50%;
+  background-color: #18d26e;
+  height: 50px;
+  width: 50px;
+}
+
+.friend-profile-pic{
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+}
+
+.friend-profile {
+  width: 70px;
+}
+
+.your-movies li{
+  padding: 0;
+}
