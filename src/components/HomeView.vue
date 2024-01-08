@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-11 d-flex  justify-content-center mb-5  " data-aos="zoom-in" data-aos-delay="200">
         <div class="btns">
-          <a class="btn-menu animated fadeInUp scrollto ">Explore our movies</a>
+          <a class="btn-menu animated fadeInUp scrollto " href="/movies">Explore our movies</a>
         </div> 
       </div>
 
