@@ -49,7 +49,7 @@
                                 </swiper-slide>
                                 <swiper-slide>
                                     <div class="movie-card">
-                                        <img src="../assets/img/inception.jpg" alt="">
+                                        <img src="../assets/img/poster4.jpg" alt="">
                                         <div class="overlay">
                                             <h1>The title of the movie
                                                 <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">

@@ -59,76 +59,144 @@
             </div>
           </div>
           <div class="container-fluid" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="swiper slide-container">
-                        <div class="swiper-wrapper" style="width: 25%;"> 
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img :src="getCountryMoviePath1()" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img :src="getCountryMoviePath2()" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img :src="getCountryMoviePath3()" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img :src="getCountryMoviePath4()" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img :src="getCountryMoviePath5()" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
+            <swiper :slidesPerView="5" :spaceBetween="20" :loop="true" :navigation="true" :modules="modules" class="mySwiper">
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic1.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Purple Hearts
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
                         </div>
-                        <div class="swx swiper-button-prev"></div>
-                        <div class="swx swiper-button-next"></div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic2.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Titanic
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic6.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Lalaland
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic4.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Me before you
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic3.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Before sunrise
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/prideandprejudice.jpg" alt="">
+                            <div class="overlay">
+                                <h1>Pride and Prejudice
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+                <swiper-slide>
+                    <div class="movie-card2">
+                            <img src="../assets/img/romantic5.jpeg" alt="">
+                            <div class="overlay">
+                                <h1>Casablanca
+                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                </swiper-slide>
+            </swiper>            
+        </div>        
+      </div> 
+    </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="addMovieModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="color: white; background-color: #171717;">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h1 class="modal-title">Purple Hearts</h1>
+                        <a class="close-button" type="button" data-bs-dismiss="modal" data-bs-target="#addMovieModal">
+                            <i class="bi bi-x"></i>
+                        </a>
                     </div>
-                    
-                </div>        
-        </div> 
-      </div>       
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="fade_rule"></div>
+                        <div class="row">
+                            <div class="col-md-5 mx-auto my-auto text-center">
+                                <img src="../assets/img/romantic1.jpeg" alt="" class="movie-image" width="300" height="500">
+                            </div>
+                            <div class="col-md-6 mx-auto my-auto">
+                                <div class="about-movie">
+
+                                    <p style="text-align: left;">"Purple Hearts" is also the title of a 1984 American war film directed by Sidney J. Furie. 
+                                        The movie is a romantic drama that takes place during the Vietnam War and follows the love story between a Navy surgeon,
+                                         Dr. Don Jardian (played by Ken Wahl), and a reporter, Deborah Solomon (played by Cheryl Ladd). 
+                                         The title "Purple Hearts" alludes to the military decoration awarded to soldiers wounded in combat              
+                                         The film explores the challenges and emotional toll of war on both the soldiers on the front lines and their loved ones back home. 
+                                        As the characters navigate the complexities of love and war, the narrative unfolds against the backdrop of the Vietnam conflict. 
+                                        "Purple Hearts" combines elements of romance and war drama, depicting the personal and human side of the Vietnam War era.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fade_rule"></div>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">
+                            Add
+                        </a>
+                        <!-- <a v-if="current_user.email !== null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">
+                            Add
+                        </a> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>  
   </section><!-- End Country Section -->
 </template>
 

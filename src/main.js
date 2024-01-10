@@ -17,7 +17,7 @@ app.mount('#app');
 
 var swiper = new Swiper(".slide-container", {
     slidesPerView: 1,
-      spaceBetween: 10,
+      spaceBetween: 30,
       loop: true,
       pagination: {
         el: ".swiper-pagination",
@@ -26,15 +26,15 @@ var swiper = new Swiper(".slide-container", {
       breakpoints: {
         640: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 20,
         },
         768: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 4,
-          spaceBetween: 30,
+          slidesPerView: 3,
+          spaceBetween: 50,
         },
       },
       navigation: {
@@ -42,8 +42,6 @@ var swiper = new Swiper(".slide-container", {
         prevEl: ".swiper-button-prev",
       },
     });
-    
-
 
 // /*Template Main CSS File*/
 // import "./assets/css/style.css";

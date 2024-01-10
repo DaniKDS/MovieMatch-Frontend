@@ -1686,6 +1686,9 @@ section {
   position: relative;
   padding: 0;
 }
+.country .modal-dialog {
+  max-width: 60%;
+}
 
 #country:before {
   content: "";
@@ -1780,6 +1783,20 @@ section {
   align-items: center;
   font-size: 4rem;
   opacity: 0.5;
+}
+
+.clasa{
+  width: 100%;
+  height: 100%;
+  justify-content: left;
+  position: relative;
+}
+
+.clasa2 {
+  justify-content: right;
+  position:sticky;
+  width: 80%;
+  height: 80%;
 }
 
 .swx:hover {
@@ -1926,6 +1943,7 @@ a {
 html,
 body {
 	height: 100%;
+  width: 100%;
 }
 
 body {
@@ -2082,7 +2100,6 @@ p a {
 .movieTab .modal-dialog {
   max-width: 60%;
 }
-
 
 @media (max-width: 576px) {
   .modal-dialog {
