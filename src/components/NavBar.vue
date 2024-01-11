@@ -21,8 +21,8 @@ import AccountView from './AccountView.vue';
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/yourmovies">Your Movies</a></li> -->
           <li><a class="nav-link scrollto active" href="/map">Map</a></li>
           <li><a class="nav-link scrollto active" href="/wheel">Wheel</a></li>
-          <li><a class="nav-link scrollto active" href="/people">People</a></li>
-          <li><a class="nav-link scrollto active" href="/yourmovies">Your Movies</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/people">People</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/yourmovies">Your Movies</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
 

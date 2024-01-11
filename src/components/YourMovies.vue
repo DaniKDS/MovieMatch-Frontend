@@ -21,86 +21,14 @@
 
                     <div class="tab-content table-responsive rounded">
                         <div id="tobewatched" class="to-be-watched-tab tab-pane fade rounded" style="padding-top: 30px;">
-                            <swiper :slidesPerView="5" :spaceBetween="5" :loop="true" :navigation="true" :modules="modules"
+                            <swiper  :slidesPerView="5" :spaceBetween="5" :loop="true" :navigation="true" :modules="modules"
                                 class="mySwiper">
-                                <swiper-slide>
+                                <swiper-slide v-for="film in filme_de_vazut">
                                     <div class="movie-card">
-                                        <img src="../assets/img/poster2.jpg" alt="">
+                                        <img :src="'/src/assets/img/' + film.imagine" alt="">
                                         <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster10.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster4.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster5.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster6.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster7.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster8.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                            <h1>{{ film.titlu }}
+                                                <a type="button" data-bs-toggle="modal" :data-bs-target="'#mylistmodal' + film.idFilm">
                                                     <i class="bi bi-info-circle-fill"></i>
                                                 </a>
                                             </h1>
@@ -112,84 +40,12 @@
                         <div id="alreadywatched" class="already-watched-tab tab-pane fade rounded" style="padding-top: 30px;">
                             <swiper :slidesPerView="5" :spaceBetween="5" :loop="true" :navigation="true" :modules="modules"
                                 class="mySwiper">
-                                <swiper-slide>
+                                <swiper-slide v-for="film in filme_vazute">
                                     <div class="movie-card">
-                                        <img src="../assets/img/poster9.jpg" alt="">
+                                        <img :src="'/src/assets/img/' + film.imagine" alt="">
                                         <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster1.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster3.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster11.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster12.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster13.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                    <i class="bi bi-info-circle-fill"></i>
-                                                </a>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </swiper-slide>
-                                <swiper-slide>
-                                    <div class="movie-card">
-                                        <img src="../assets/img/poster14.jpg" alt="">
-                                        <div class="overlay">
-                                            <h1>The title of the movie
-                                                <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                            <h1>{{ film.titlu }}
+                                                <a type="button" data-bs-toggle="modal" :data-bs-target="'#seenlistmodal' + film.idFilm">
                                                     <i class="bi bi-info-circle-fill"></i>
                                                 </a>
                                             </h1>
@@ -198,10 +54,10 @@
                                 </swiper-slide>
                             </swiper>
                         </div>
-                        <div id="friendslist" class="shared-lists-tab tab-pane fade rounded">
-                            <div class="friends-list" style="padding: 30px;">
+                        <div  id="friendslist" class="shared-lists-tab tab-pane fade rounded">
+                            <div  class="friends-list" style="padding: 30px;">
                                 <ul class="friend-movie-buttons nav nav-fill">
-                                    <swiper :slidesPerView="5" :spaceBetween="5" :loop="true" :modules="modules"
+                                    <swiper v-for="friend in friends" :slidesPerView="5" :spaceBetween="100" :loop="true" :modules="modules"
                                     class="mySwiper">
                                     <swiper-slide>
                                         <div class="friend-profile">
@@ -209,60 +65,6 @@
                                         <a href="#friend1" data-bs-toggle="tab"><img src="../assets/img/prieten1.jpg"
                                                     alt="" class="friend-profile-pic"></a>
                                                     <p>Cimpan Alina</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend2" data-bs-toggle="tab"><img src="../assets/img/file1.jpg"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>Chis Madalina</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend3" data-bs-toggle="tab"><img src="../assets/img/dani.jpg"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>Cordis Daniel</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend4" data-bs-toggle="tab"><img src="../assets/img/file.jpg"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>Bucura Maria</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend5" data-bs-toggle="tab"><img src="../assets/img/file2.jpg"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>Topan Mihai</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend6" data-bs-toggle="tab"><img src="../assets/img/images.png"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>Jane Doe</p>
-                                    </li>
-                                        </div>
-                                    </swiper-slide>
-                                    <swiper-slide>
-                                        <div class="friend-profile">
-                                            <li>
-                                        <a href="#friend7" data-bs-toggle="tab"><img src="../assets/img/images.png"
-                                                    alt="" class="friend-profile-pic"></a>
-                                                    <p>John Doe</p>
                                     </li>
                                         </div>
                                     </swiper-slide>
@@ -676,41 +478,29 @@
             </div>
         </div>
 
-
-        <div class="modal fade" id="addMovieModal" tabindex="-1">
+        <div v-for="film in filme_de_vazut">
+        <div class="modal fade" :id="'mylistmodal' + film.idFilm" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="color: white; background-color: #171717;">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h1 class="modal-title">Movie Title</h1>
-                        <a class="close-button" type="button" data-bs-dismiss="modal" data-bs-target="#addMovieModal">
+                        <h1 class="modal-title">{{ film.titlu }}</h1>
+                        <a class="close-button" type="button" data-bs-dismiss="modal" :data-bs-target="'#mylistmodal' + film.idFilm">
                             <i class="bi bi-x"></i>
                         </a>
                     </div>
 
                     <!-- Modal Body -->
-                    <div class="modal-body">
+                    <div  class="modal-body">
                         <div class="fade_rule"></div>
                         <div class="row">
                             <div class="col-md-5 mx-auto my-auto text-center">
-                                <img src="../assets/img/poster.jpg" alt="" class="movie-image" width="300" height="500">
+                                <img :src="'/src/assets/img/' + film.imagine" alt="" class="movie-image" width="300" height="500">
                             </div>
                             <div class="col-md-6 mx-auto my-auto">
                                 <div class="about-movie">
-
-                                    <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                                        ipsum est, suscipit in
-                                        mattis quis, pharetra eu purus. Nulla facilisi. Morbi dignissim condimentum mi quis
-                                        vestibulum. Duis dapibus dui quis dui ultricies, eget congue nunc tempor. Aenean
-                                        vestibulum porttitor nisl, eu molestie sem ultrices vel. Vestibulum ante ipsum
-                                        primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse et
-                                        turpis urna. Nam auctor, mauris eget aliquet ultricies, nulla ligula euismod ipsum,
-                                        non tristique massa leo id velit. Sed consectetur ut ante id dictum. Donec auctor
-                                        lobortis neque, pretium elementum leo ornare eu. Nulla nec ipsum in libero pharetra
-                                        suscipit vel et tellus. Vestibulum non consequat justo. Nullam vel leo quam.
-                                        Praesent sapien lectus, posuere sit amet rhoncus vel, lobortis sed dui. Vestibulum
-                                        convallis elit nec dui egestas ullamcorper.</p>
+                                    <p style="text-align: left;">{{ film.descriere }}</p>
                                 </div>
                             </div>
                         </div>
@@ -719,38 +509,122 @@
 
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">remove
-                            from list</a>
+                        <button @click="marcheaza_film_vazut( film.idFilm ); get_movies_to_be_seen(); get_seen_movies()" type="button" data-bs-dismiss="modal" class="book-a-table-btn scrollto d-none d-lg-flex" style="padding: 5px 10px; font-size: 16px; height: 40px; color: rgb(255,255,255); background-color:rgb(0,0,0)">
+                        Seen
+                    </button>
+                    <button @click="sterge_film_din_lista( film.idFilm ); get_movies_to_be_seen()" type="button" data-bs-dismiss="modal" class="book-a-table-btn scrollto d-none d-lg-flex" style="padding: 5px 10px; font-size: 16px; height: 40px; color: rgb(255,255,255); background-color:rgb(0,0,0)">
+                        Remove
+                    </button>
                     </div>
-
+                </div>
+                </div>
                 </div>
             </div>
-        </div>
+
+            <div v-for="film in filme_vazute">
+        <div class="modal fade" :id="'seenlistmodal' + film.idFilm" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="color: white; background-color: #171717;">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h1 class="modal-title">{{ film.titlu }}</h1>
+                        <a class="close-button" type="button" data-bs-dismiss="modal" :data-bs-target="'#seenlistmodal' + film.idFilm">
+                            <i class="bi bi-x"></i>
+                        </a>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div  class="modal-body">
+                        <div class="fade_rule"></div>
+                        <div class="row">
+                            <div class="col-md-5 mx-auto my-auto text-center">
+                                <img :src="'/src/assets/img/' + film.imagine" alt="" class="movie-image" width="300" height="500">
+                            </div>
+                            <div class="col-md-6 mx-auto my-auto">
+                                <div class="about-movie">
+                                    <p style="text-align: left;">{{ film.descriere }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fade_rule"></div>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button @click="sterge_film_din_lista( film.idFilm ); get_seen_movies()" type="button" data-bs-dismiss="modal" class="book-a-table-btn scrollto d-none d-lg-flex" style="padding: 5px 10px; font-size: 16px; height: 40px; color: rgb(255,255,255); background-color:rgb(0,0,0)">
+                         Remove
+                    </button>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
     </section>
 </template>
 
+
+<script setup>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  // import required modules
+  import { Pagination } from 'swiper/modules';
+
+  import axios from 'axios';
+
+  const modules = [Pagination];
+
+</script>
 <script>
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue';
 
-// Import Swiper styles
-import 'swiper/css';
-
-import 'swiper/css/pagination';
-
-
-// import required modules
-import { Pagination } from 'swiper/modules';
+import axios from 'axios';
 
 export default {
-    components: {
-        Swiper,
-        SwiperSlide,
-    },
-    setup() {
+    data() {
         return {
-            modules: [Pagination],
-        };
+        current_user: {
+            "numeUtilizator": null, 
+            "prenumeUtilizator": null, 
+            "username": null, 
+            "email": null
+        },
+        filme_de_vazut: [],
+        filme_vazute: [],
+        friends: [],
+        }
     },
+    methods: {
+        get_movies_to_be_seen(){
+            axios.get(`/api/filme_de_vazut/`).then(response => {this.filme_de_vazut=response.data});
+        },
+        get_seen_movies(){
+            axios.get(`/api/filme_vazute/`).then(response => {this.filme_vazute=response.data});
+        },
+        marcheaza_film_vazut(id){
+            axios.post(`/api/film/marcheaza_film_vazut/${id}`).then(this.get_movies_to_be_seen())
+        },
+        sterge_film_din_lista(id){
+            axios.post(`/api/film/sterge_pereche/${id}`).then(this.get())
+        },
+        afisare_prieteni(){
+            axios.get(`/api/afisare_prieteni/`).then(response => {this.friends=response.data});
+        },
+        closeModal() {
+            this.modalVisible = false;
+        }
+    },
+    created() {
+        axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
+        this.get_movies_to_be_seen();
+        this.get_seen_movies();
+        this.afisare_prieteni();
+        this.closeModal();
+        
+    }
 };
 </script>

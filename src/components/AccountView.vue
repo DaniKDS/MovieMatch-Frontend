@@ -3,8 +3,6 @@
 
     <a v-if="current_user.email != null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">Account</a>
 
-    <a v-if="current_user.email != null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">Account</a>
-
         <!--Offcanvas-ul pentru Account-->
         <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="account" aria-labelledby="accountLabel">
           <div class="offcanvas-header">
@@ -30,7 +28,6 @@
               <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#friendsListOffcanvas" style="position: absolute; bottom: 35%; left: 50%; transform: translateX(-50%);">Friends list</button>
               <button class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#friendRequestOffcanvas" style="position: absolute; bottom: 45%; left: 50%; transform: translateX(-50%);">Friend requests list</button>
 
-              <button type="button" class="log-out-button" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); "><a href='/logout'>Log out</a></button>
               <button type="button" class="log-out-button" style="position: absolute; bottom: 17%; left: 50%; transform: translateX(-50%); "><a href='/logout'>Log out</a></button>
             </div>
         
@@ -93,6 +90,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -106,9 +104,13 @@ export default {
       cereri: [],
     }
   },
+  
   methods: {
     update_prieteni(){
       axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data})
+    },
+    update_inamici(){
+      axios.get("/api/afisare_inamici").then(response => {this.inamici=response.data})
     },
     afisare_cereri(){
       axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data})
@@ -117,7 +119,7 @@ export default {
       axios.post(`/api/cerere_prietenie/accept/${id}`).then(this.afisare_cereri())
     },
     reject_cerere(id){
-      axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri())
+      axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri(), this.update_inamici())
     },
     sterge_prieten(id){
       axios.post(`/api/stergere_prieten/${id}`).then(this.update_prieteni())
@@ -126,7 +128,9 @@ export default {
   },
   created() {
     axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
+
     this.update_prieteni();
+    this.update_inamici();
     this.afisare_cereri();
   }
 }
