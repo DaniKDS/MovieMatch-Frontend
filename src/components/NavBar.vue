@@ -34,15 +34,15 @@ import AccountView from './AccountView.vue';
             </option>
           </datalist>
         </div>
-        <button class="search-button" type="submit" data-bs-toggle="modal" data-bs-target="#searchModal"
-          aria-controls="searchModal" @click="openMovieModal()"><i class="bi bi-search"></i></button>
+        <button class="search-button" type="submit" aria-controls="searchModal" @click="openMovieModal()">
+          <i class="bi bi-search"></i>
+        </button>
       </form>
-
 
       <a v-if="current_user.email == null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button"
         data-bs-toggle="modal" data-bs-target="#LogInModal" aria-controls="LogInModal">Log in</a>
 
-      <AccountView v-if="current_user.email != null"/>
+      <AccountView/>
 
 
     </div>
@@ -95,7 +95,7 @@ import AccountView from './AccountView.vue';
         </div>
         <!-- Modal Footer -->
         <div class="modal-footer">
-          <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">Add</a>
+          <a @click="adaugare_film_in_lista( movieDetails.idFilm )" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">Add</a>
         </div>
       </div>
     </div>
@@ -158,14 +158,16 @@ export default {
         try {
           const response = await axios.get(`/api/filme/titlu/${encodeURIComponent(this.searchQuery)}`);
           this.movieDetails = response.data;
-          console.log(this.movieDetails.titlu);
           // Deschide modalul cu detalii despre film
           $('#searchModal').modal('show');
         } catch (error) {
           console.error("Eroare la solicitarea către backend:", error);
         }
       }
-    }
+    },
+    adaugare_film_in_lista(id){
+      axios.post(`/api/film/adauga_film_in_lista/${id}`);
+    },
   },
     created() {
       axios.get("/api/utilizatori/current").then(response => { this.current_user = response.data })

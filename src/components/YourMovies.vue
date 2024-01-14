@@ -228,10 +228,7 @@ export default {
         get_filme_comune(){
             axios.get(`/api/afisare_prieteni`).then(response =>{
                 this.friends = response.data;
-                console.log(this.friends);
                 for (const friend of this.friends){
-                    console.log(friend);
-                    console.log(friend.idUtilizator);
                     axios.get(`/api/filme_comune/${friend.idUtilizator}`).then(response=> {
                         this.filme_comune[friend.idUtilizator]=response.data;
                     });

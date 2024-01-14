@@ -2241,6 +2241,9 @@ p a {
   max-width: 60%;
 }
 
+#searchModal .modal-dialog {
+  max-width: 60%;
+}
 
 @media (max-width: 576px) {
   .modal-dialog {

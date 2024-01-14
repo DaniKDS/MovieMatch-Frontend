@@ -164,7 +164,7 @@ export default {
       return path;
     },
     get_movies_by_country(country_code){
-      axios.get(`/api/filme/locatie/${country_code}`).then(response => {this.movies = response.data; console.log(this.movies)});
+      axios.get(`/api/filme/locatie/${country_code}`).then(response => {this.movies = response.data});
     },
     adaugare_film_in_lista(id){
       axios.post(`/api/film/adauga_film_in_lista/${id}`)
@@ -174,7 +174,6 @@ export default {
     isoCode() {
       // Extract ISO code from the URL
       const url = window.location.href; // Get current URL
-      console.log(url)
       const isoCode = url.slice(-2); // Extract last two characters
       return isoCode;
     },

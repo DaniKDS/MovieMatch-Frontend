@@ -74,9 +74,8 @@ const router = createRouter({
 
 
 router.beforeEach(async (to, from) => {
-  var current_user = axios.get("/api/utilizatori/current").data;
-
-  if(to.meta.requiresAuth && current_user== null){
+  var current_user = await axios.get("/api/utilizatori/current");
+  if(to.meta.requiresAuth && current_user == null){
     return {
       path: '/'
     }
