@@ -115,17 +115,12 @@
             });
         },
         adaugare_film_in_lista(id){
-            axios.post(`/api/film/adauga_film_in_lista/${id}`).then(this.get_categories(), this.closeModal())
+            axios.post(`/api/film/adauga_film_in_lista/${id}`).then(this.get_categories())
         },
-        closeModal() {
-            this.modalVisible = false;
-        }
     },
     created() {
         axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
-        this.get_categories();
-        this.closeModal();
-        
+        this.get_categories();     
     }
 }
 </script>

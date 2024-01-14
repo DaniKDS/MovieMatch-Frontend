@@ -14,13 +14,9 @@ import AccountView from './AccountView.vue';
         <ul>
           <li><a class="nav-link scrollto active " href="/">Home</a></li>
           <li><a class="nav-link scrollto active" href="/about">About</a></li>
-          <li><a class="nav-link scrollto active" href="/movies">Movies</a></li>
-          <!-- <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/map">Map</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/movies">Movies</a></li>
+          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/map">Map</a></li>
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/wheel">Wheel</a></li>
-          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/people">People</a></li>
-          <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/yourmovies">Your Movies</a></li> -->
-          <li><a class="nav-link scrollto active" href="/map">Map</a></li>
-          <li><a class="nav-link scrollto active" href="/wheel">Wheel</a></li>
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/people">People</a></li>
           <li v-if="current_user.email != null"><a class="nav-link scrollto active" href="/yourmovies">Your Movies</a></li>
         </ul>
@@ -80,11 +76,12 @@ import AccountView from './AccountView.vue';
           </a>
         </div>
         <!-- Modal Body -->
+
         <div class="modal-body">
           <div class="fade_rule"></div>
           <div class="row">
             <div class="col-md-5 mx-auto my-auto text-center">
-              <img src='../assets/img/inception.jpg' alt="" class="movie-image" width="300" height="500">
+              <img :src="'/src/assets/img/' + movieDetails.imagine" alt="" class="movie-image" width="300" height="500">
             </div>
             <div class="col-md-6 mx-auto my-auto">
               <div class="about-movie">
@@ -186,7 +183,9 @@ export default {
   font-size: 50px;
   color: white;
 }
-
+.searchModal .modal-dialog {
+  max-width: 60%;
+}
 
 .movie-image {
   border-radius: 15px;

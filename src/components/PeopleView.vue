@@ -7,7 +7,8 @@
           <div class="d-flex flex-column align-items-center">
 
             <!-- Caseta de căutare -->
-            <form ref="searchForm" class="d-flex" role="search" @submit.prevent="searchUser">
+                   <!-- Caseta de căutare -->
+                   <form ref="searchForm" class="d-flex" role="search" @submit.prevent="searchUser">
               <div class="position-relative">
                 <input v-model="searchQuery" @input="getUserSuggestions" class="form-control me-2" type="search"
                   placeholder="User search" aria-label="Search" list="userSuggestionsList">
@@ -21,7 +22,6 @@
               <button class="search-button" type="submit" @click="addToVerticalList()"><i
                   class="bi bi-search"></i></button>
             </form>
-
             <br>
             <!-- Lista -->
             <div class="vertical-list">
@@ -29,7 +29,7 @@
                 <li v-for="inamic in inamici" class="list-group-item"
                   style="border-color: #cda45e; color: white; background-color: #0c0b09; position: relative; width: 800px;">
                   <span style="float: left;">{{ inamic.numeUtilizator }} {{ inamic.prenumeUtilizator }}</span>
-                  <button @click="trimite_cerere(inamic.idUtilizator)" type="button" class="log-out-button accept-button"
+                  <button @click="trimite_cerere(inamic.idUtilizator), update_inamici()" type="button" class="log-out-button accept-button"
                     data-bs-toggle="modal" data-bs-target="#RequestModal"
                     style="float: right; padding: 5px 10px; font-size: 12px; height: 25px;">
                     <i class="bi bi-person-plus-fill" style="color: white;"></i> Send a friend request

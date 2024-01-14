@@ -17,16 +17,17 @@
   }
 
   .country-desc {
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0rem;
   }
 
   .country-desc > p {
     font-style: italic;
     font-size: 1.2rem;
-    text-indent: 4ch;
+    text-indent: 0ch;
+
   }
 
   .country-desc > h3 {
@@ -50,8 +51,7 @@
             </div>
             <div class="country-desc">
                <h3>{{ countryName }}</h3>
-                <p>
-                    Cinematic production is often a mirror of the culture and social context of the country in which it is made. 
+               <p>Cinematic production is often a mirror of the culture and social context of the country in which it is made. 
                     Specific elements of a country, such as its history, traditions, values, and social climate, are subtly or overtly 
                     reflected in the respective films. 
                     This influence of the country on the artistic process manifests in various ways, from narrative and aesthetic choices to the subjects and themes addressed.
@@ -60,84 +60,12 @@
           </div>
           <div class="container-fluid" data-aos="zoom-in" data-aos-delay="200">
             <swiper :slidesPerView="5" :spaceBetween="20" :loop="true" :navigation="true" :modules="modules" class="mySwiper">
-                <swiper-slide>
+              <swiper-slide v-for="movie in movies">
                     <div class="movie-card2">
-                            <img src="../assets/img/romantic1.jpeg" alt="">
+                            <img :src="'/src/assets/img/' + movie.imagine" alt="">
                             <div class="overlay">
-                                <h1>Purple Hearts
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/romantic2.jpeg" alt="">
-                            <div class="overlay">
-                                <h1>Titanic
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/romantic6.jpeg" alt="">
-                            <div class="overlay">
-                                <h1>Lalaland
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/romantic4.jpeg" alt="">
-                            <div class="overlay">
-                                <h1>Me before you
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/romantic3.jpeg" alt="">
-                            <div class="overlay">
-                                <h1>Before sunrise
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/prideandprejudice.jpg" alt="">
-                            <div class="overlay">
-                                <h1>Pride and Prejudice
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                        <i class="bi bi-info-circle-fill"></i>
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="movie-card2">
-                            <img src="../assets/img/romantic5.jpeg" alt="">
-                            <div class="overlay">
-                                <h1>Casablanca
-                                    <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
+                                <h1>{{ movie.titlu }}
+                                    <a type="button" data-bs-toggle="modal" :data-bs-target="'#addMovieModal' + movie.idFilm">
                                         <i class="bi bi-info-circle-fill"></i>
                                     </a>
                                 </h1>
@@ -148,15 +76,16 @@
         </div>        
       </div> 
     </div>
+    <div v-for="movie in movies">
         <!-- The Modal -->
-        <div class="modal fade" id="addMovieModal" tabindex="-1">
+        <div class="modal fade" :id="'addMovieModal' + movie.idFilm" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content" style="color: white; background-color: #171717;">
 
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h1 class="modal-title">Purple Hearts</h1>
-                        <a class="close-button" type="button" data-bs-dismiss="modal" data-bs-target="#addMovieModal">
+                        <h1 class="modal-title">{{ movie.titlu }}</h1>
+                        <a class="close-button" type="button" data-bs-dismiss="modal" data-bs-target="'#addMovieModal' + movie.idFilm">
                             <i class="bi bi-x"></i>
                         </a>
                     </div>
@@ -166,18 +95,11 @@
                         <div class="fade_rule"></div>
                         <div class="row">
                             <div class="col-md-5 mx-auto my-auto text-center">
-                                <img src="../assets/img/romantic1.jpeg" alt="" class="movie-image" width="300" height="500">
+                                <img :src="'/src/assets/img/' + movie.imagine" alt="" class="movie-image" width="300" height="500">
                             </div>
                             <div class="col-md-6 mx-auto my-auto">
                                 <div class="about-movie">
-
-                                    <p style="text-align: left;">"Purple Hearts" is also the title of a 1984 American war film directed by Sidney J. Furie. 
-                                        The movie is a romantic drama that takes place during the Vietnam War and follows the love story between a Navy surgeon,
-                                         Dr. Don Jardian (played by Ken Wahl), and a reporter, Deborah Solomon (played by Cheryl Ladd). 
-                                         The title "Purple Hearts" alludes to the military decoration awarded to soldiers wounded in combat              
-                                         The film explores the challenges and emotional toll of war on both the soldiers on the front lines and their loved ones back home. 
-                                        As the characters navigate the complexities of love and war, the narrative unfolds against the backdrop of the Vietnam conflict. 
-                                        "Purple Hearts" combines elements of romance and war drama, depicting the personal and human side of the Vietnam War era.</p>
+                                    <p style="text-align: left;">{{ movie.descriere }}</p>
                                 </div>
                             </div>
                         </div>
@@ -186,79 +108,66 @@
 
                     <!-- Modal Footer -->
                     <div class="modal-footer">
-                        <a class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">
-                            Add
-                        </a>
-                        <!-- <a v-if="current_user.email !== null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">
-                            Add
-                        </a> -->
+                        
+                        <button @click="adaugare_film_in_lista( movie.idFilm )" type="button" data-bs-dismiss="modal" class="book-a-table-btn scrollto d-none d-lg-flex" style="padding: 5px 10px; font-size: 16px; height: 40px; color: rgb(255,255,255); background-color:rgb(0,0,0)">
+                          Add
+                        </button>
+                    
                     </div>
 
                 </div>
             </div>
         </div>  
+      </div>
   </section><!-- End Country Section -->
 </template>
 
+<script setup>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  // import required modules
+  import { Pagination } from 'swiper/modules';
+
+  import axios from 'axios';
+
+  const modules = [Pagination];
+
+</script>
+
 <script>
-
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-//import 'swiper/css/pagination';
-//import { Pagination } from 'swiper/modules';
-
-
 
 export default {
   components: {
       Swiper,
       SwiperSlide,
     },
-    setup() {
-      return {
-        //modules: [Pagination],
-      };
-    },
   data() {
     return {
       baseUrl: "../src/assets/img/countries/", // Base URL for country images
-      baseUrl2: "../src/assets/img/movies/", // Base URL for movie images
-      baseUrl3: "../src/assets/img/movies1/", // Base URL for country images
-      baseUrl4: "../src/assets/img/movies2/", // Base URL for country images
-      baseUrl5: "../src/assets/img/movies3/", // Base URL for country images
-      baseUrl6: "../src/assets/img/movies4/", // Base URL for country images
+      current_user: {
+            "numeUtilizator": null, 
+            "prenumeUtilizator": null, 
+            "username": null, 
+            "email": null
+      },
+      movies: [],
     };
   },
   methods: {
     getCountryImagePath() {
       const path = this.baseUrl + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
       return path;
     },
-    getCountryMoviePath1() {
-      const path = this.baseUrl2 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
-      return path;
+    get_movies_by_country(country_code){
+      axios.get(`/api/filme/locatie/${country_code}`).then(response => {this.movies = response.data; console.log(this.movies)});
     },
-    getCountryMoviePath2() {
-      const path = this.baseUrl3 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
-      return path;
-    },
-    getCountryMoviePath3() {
-      const path = this.baseUrl4 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
-      return path;
-    },
-    getCountryMoviePath4() {
-      const path = this.baseUrl5 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
-      return path;
-    },
-    getCountryMoviePath5() {
-      const path = this.baseUrl6 + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
-      return path;
+    adaugare_film_in_lista(id){
+      axios.post(`/api/film/adauga_film_in_lista/${id}`)
     },
   },
   computed: {
@@ -513,25 +422,12 @@ export default {
     };
       return countryNames[this.isoCode] || "Unknown";
     },
-    countryMovies() {
-      // Logic to get country name based on ISO code if needed
-      // Replace this with your logic to fetch country names
-      // For example:
-      const countryMovies= {
-        "ro": "Romania"
-
-    };
-      return countryMovies[this.isoCode] || "Unknown";
-    },
-    countryDescription(){
-      const countryDescriptions = {
-        "us": "descriere"
-      }
-
-      return this.countryDescriptions[this.isoCode] || "No description"
-    }
-    
+  
   },
+  created() {
+    axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
+    this.get_movies_by_country(this.isoCode);
+  }
 };
 
 

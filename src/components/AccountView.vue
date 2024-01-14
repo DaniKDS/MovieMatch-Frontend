@@ -116,7 +116,10 @@ export default {
       axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data})
     },
     accept_cerere(id){
-      axios.post(`/api/cerere_prietenie/accept/${id}`).then(this.afisare_cereri())
+      axios.post(`/api/cerere_prietenie/accept/${id}`).then(response=>{
+        axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data});
+        axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data});
+      })
     },
     reject_cerere(id){
       axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri(), this.update_inamici())
