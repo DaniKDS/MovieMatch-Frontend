@@ -7,7 +7,7 @@
         <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="account" aria-labelledby="accountLabel">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title text-center" id="accountLabel" style="font-size: 35px;">
-                <i class="bi bi-person"></i> Hi, {{ current_user.prenumeUtilizator }} !
+                <i class="bi bi-person"></i> Hi, {{ current_user.username }} !
             </h5>
             <button class="close-x-button" type="button" data-bs-dismiss="offcanvas" aria-label="Close">
                 <i class="bi bi-x"></i>
@@ -16,10 +16,10 @@
             <div class="offcanvas-body text-center">
               <div class="card contactCard">
                   <div class="card-body">
-                      <p><i>My profile</i></p>
+                      <p><i>Date de contact</i></p>
                       <p>
                           <br>Name: {{ current_user.numeUtilizator }}
-                          <br>Surname: {{ current_user.prenumeUtilizator }}
+                          <br>Prenume: {{ current_user.prenumeUtilizator }}
                           <br>Email: {{ current_user.email }}
                       </p>
                   </div>
@@ -90,7 +90,6 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   data() {
     return {
@@ -104,25 +103,18 @@ export default {
       cereri: [],
     }
   },
-  
   methods: {
     update_prieteni(){
       axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data})
-    },
-    update_inamici(){
-      axios.get("/api/afisare_inamici").then(response => {this.inamici=response.data})
     },
     afisare_cereri(){
       axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data})
     },
     accept_cerere(id){
-      axios.post(`/api/cerere_prietenie/accept/${id}`).then(response=>{
-        axios.get("/api/afisare_prieteni").then(response => {this.prieteni=response.data});
-        axios.get("/api/afisare_cereri").then(response => {this.cereri=response.data});
-      })
+      axios.post(`/api/cerere_prietenie/accept/${id}`).then(this.afisare_cereri())
     },
     reject_cerere(id){
-      axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri(), this.update_inamici())
+      axios.post(`/api/cerere_prietenie/reject/${id}`).then(this.afisare_cereri())
     },
     sterge_prieten(id){
       axios.post(`/api/stergere_prieten/${id}`).then(this.update_prieteni())
@@ -131,9 +123,7 @@ export default {
   },
   created() {
     axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
-
     this.update_prieteni();
-    this.update_inamici();
     this.afisare_cereri();
   }
 }

@@ -42,7 +42,7 @@ import AccountView from './AccountView.vue';
       <a v-if="current_user.email == null" class="book-a-table-btn scrollto d-none d-lg-flex" type="button"
         data-bs-toggle="modal" data-bs-target="#LogInModal" aria-controls="LogInModal">Log in</a>
 
-      <AccountView />
+      <AccountView v-if="current_user.email != null"/>
 
 
     </div>
