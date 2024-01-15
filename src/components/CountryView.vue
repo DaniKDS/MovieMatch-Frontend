@@ -17,16 +17,17 @@
   }
 
   .country-desc {
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0rem;
   }
 
   .country-desc > p {
     font-style: italic;
     font-size: 1.2rem;
-    text-indent: 4ch;
+    text-indent: 0ch;
+
   }
 
   .country-desc > h3 {
@@ -50,8 +51,7 @@
             </div>
             <div class="country-desc">
                <h3>{{ countryName }}</h3>
-                <p>
-                    Cinematic production is often a mirror of the culture and social context of the country in which it is made. 
+               <p>Cinematic production is often a mirror of the culture and social context of the country in which it is made. 
                     Specific elements of a country, such as its history, traditions, values, and social climate, are subtly or overtly 
                     reflected in the respective films. 
                     This influence of the country on the artistic process manifests in various ways, from narrative and aesthetic choices to the subjects and themes addressed.
@@ -59,127 +59,121 @@
             </div>
           </div>
           <div class="container-fluid" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="swiper slide-container">
-                        <div class="swiper-wrapper">
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>The title of the movie
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster1.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster2.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster3.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster4.webp" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>
-                            <swiper-slide>
-                                <div class="movie-card2">
-                                    <img src="../assets/img/poster.jpg" alt="">
-                                    <div class="overlay">
-                                        <h1>Movie Title
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#addMovieModal">
-                                                <i class="bi bi-info-circle-fill"></i>
-                                            </a>
-                                        </h1>
-                                    </div>
-                                </div>
-                            </swiper-slide>  
+            <swiper :slidesPerView="5" :spaceBetween="20" :loop="true" :navigation="true" :modules="modules" class="mySwiper">
+              <swiper-slide v-for="movie in movies">
+                    <div class="movie-card2">
+                            <img :src="'/src/assets/img/' + movie.imagine" alt="">
+                            <div class="overlay">
+                                <h1>{{ movie.titlu }}
+                                    <a type="button" data-bs-toggle="modal" :data-bs-target="'#addMovieModal' + movie.idFilm">
+                                        <i class="bi bi-info-circle-fill"></i>
+                                    </a>
+                                </h1>
+                            </div>
                         </div>
-                        <div class="swx swiper-button-prev">&#8249;</div>
-                        <div class="swx swiper-button-next">&#8250;</div>
+                </swiper-slide>
+            </swiper>            
+        </div>        
+      </div> 
+    </div>
+    <div v-for="movie in movies">
+        <!-- The Modal -->
+        <div class="modal fade" :id="'addMovieModal' + movie.idFilm" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="color: white; background-color: #171717;">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h1 class="modal-title">{{ movie.titlu }}</h1>
+                        <a class="close-button" type="button" data-bs-dismiss="modal" data-bs-target="'#addMovieModal' + movie.idFilm">
+                            <i class="bi bi-x"></i>
+                        </a>
                     </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <div class="fade_rule"></div>
+                        <div class="row">
+                            <div class="col-md-5 mx-auto my-auto text-center">
+                                <img :src="'/src/assets/img/' + movie.imagine" alt="" class="movie-image" width="300" height="500">
+                            </div>
+                            <div class="col-md-6 mx-auto my-auto">
+                                <div class="about-movie">
+                                    <p style="text-align: left;">{{ movie.descriere }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fade_rule"></div>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        
+                        <button @click="adaugare_film_in_lista( movie.idFilm )" type="button" data-bs-dismiss="modal" class="book-a-table-btn scrollto d-none d-lg-flex" style="padding: 5px 10px; font-size: 16px; height: 40px; color: rgb(255,255,255); background-color:rgb(0,0,0)">
+                          Add
+                        </button>
                     
-                </div>        
-        </div> 
-      </div>       
+                    </div>
+
+                </div>
+            </div>
+        </div>  
+      </div>
   </section><!-- End Country Section -->
 </template>
 
+<script setup>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  // import required modules
+  import { Pagination } from 'swiper/modules';
+
+  import axios from 'axios';
+
+  const modules = [Pagination];
+
+</script>
+
 <script>
-
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-//import 'swiper/css/pagination';
-//import { Pagination } from 'swiper/modules';
-
-
 
 export default {
   components: {
       Swiper,
       SwiperSlide,
     },
-    setup() {
-      return {
-        //modules: [Pagination],
-      };
-    },
   data() {
     return {
       baseUrl: "../src/assets/img/countries/", // Base URL for country images
+      current_user: {
+            "numeUtilizator": null, 
+            "prenumeUtilizator": null, 
+            "username": null, 
+            "email": null
+      },
+      movies: [],
     };
   },
   methods: {
     getCountryImagePath() {
       const path = this.baseUrl + this.isoCode + ".webp"; // Concatenate base URL with ISO code
-      console.log(path)
       return path;
+    },
+    get_movies_by_country(country_code){
+      axios.get(`/api/filme/locatie/${country_code}`).then(response => {this.movies = response.data});
+    },
+    adaugare_film_in_lista(id){
+      axios.post(`/api/film/adauga_film_in_lista/${id}`)
     },
   },
   computed: {
     isoCode() {
       // Extract ISO code from the URL
       const url = window.location.href; // Get current URL
-      console.log(url)
       const isoCode = url.slice(-2); // Extract last two characters
       return isoCode;
     },
@@ -427,15 +421,12 @@ export default {
     };
       return countryNames[this.isoCode] || "Unknown";
     },
-    countryDescription(){
-      const countryDescriptions = {
-        "us": "descriere"
-      }
-
-      return this.countryDescriptions[this.isoCode] || "No description"
-    }
-    
+  
   },
+  created() {
+    axios.get("/api/utilizatori/current").then(response => {this.current_user=response.data});
+    this.get_movies_by_country(this.isoCode);
+  }
 };
 
 

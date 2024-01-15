@@ -4,7 +4,7 @@
       <div id="chart"></div>
       <div id="question">
         <div class="question-box">
-          <h1></h1>
+          <h1>Ready for a spin? Let the wheel decide your movie night! 🍿</h1>
         </div>
       </div>
     </div>
@@ -13,16 +13,14 @@
 
 <script>
 import * as d3 from 'd3';
+import axios from 'axios';
 export default {
-  mounted() {
-    this.initializeWheel();
-  },
   data() {
     const padding = { top: 20, right: 40, bottom: 0, left: 0 };
     const w = 500 - padding.left - padding.right;
     const h = 500 - padding.top - padding.bottom;
     const r = Math.min(w, h) / 2;
-
+    
     return {
       padding,
       w,
@@ -33,20 +31,26 @@ export default {
       picked: 100000,
       oldpick: [],
       color: d3.scaleOrdinal(d3.schemeCategory10),
-      data: [
-        { "label": "B&B Merry", "value": 1, "question": "Surprisingly heartwarming Christmas movie. Enjoy your watch!" },
-        { "label": "A Brush with Christmas", "value": 2, "question": "A festive painting adventure awaits. Happy watching!" },
-        { "label": "Miracle in Cell No. 7", "value": 3, "question": "Prepare for tears with this touching movie. Enjoy the journey!" },
-        { "label": "Purple Hearts", "value": 4, "question": "Which color lights up your Christmas? Share your favorite!" },
-        { "label": "Forgotten Love", "value": 5, "question": "Rediscover romance in this Christmas tale. Hope you love it!" },
-        { "label": "Pride & Prejudice", "value": 6, "question": "Classic period drama for the holidays. Enjoy the elegance!" },
-        { "label": "Don't Look Up", "value": 7, "question": "A sci-fi twist to Christmas. Buckle up for an intergalactic ride!" },
-        { "label": "Nowhere", "value": 8, "question": "Dreaming of a Christmas getaway? Share your ideal vacation spot!" },
-        { "label": "Christmas As Usual", "value": 9, "question": "What's your Christmas style? Traditional or quirky? Let us know!" },
-        { "label": "All the Bright Places", "value": 10, "question": "Dive into the magic of Christmas books. Share your favorite read!" },
-      ],
+      data: [],
     };
   },
+  mounted() {
+    
+  
+    axios.get('/api/random_movies')
+    .then(response => {
+      this.data = response.data.map(movie => ({
+        label: movie.titlu,
+        value: movie.idFilm,
+        question: movie.descriere
+      }));
+      this.initializeWheel();
+    })
+    .catch(error => {
+      console.error(error);
+    });
+},
+
   methods: {
     initializeWheel() {
       const { w, h, padding, data, r, color } = this;
@@ -54,41 +58,40 @@ export default {
       const cssStyles = `
         text {
           font-family: Helvetica, Arial, sans-serif;
-          font-size: 11px;
+          font-weight: bold;
+          font-size: 16px;
           pointer-events: none;
         }
         #chart {
           position: absolute;
           width: 500px;
           height: 500px;
-          top: 50%;
-          left: 50%;
+          top: 45%;
+          left: 30%; /* Modificare valoarea aici pentru a ajusta poziția la stânga */
           transform: translate(-50%, -50%);
         }
-        #chart-container text {
-          font-size: 12px;
-          font-weight: bold;
-        }
+
         #question {
           position: absolute;
-          width: 400px;
-          height: 500px;
-          top: 50%;
-          left: calc(60% + 270px);
+          width: 700px;
+          height: 300px;
+          top: 40%;
+          left: 75%;
           transform: translate(-50%, -50%);
         }
+
         .question-box {
-          background-color: rgba(255, 255, 255, 0.8);
           border-radius: 10px;
           padding: 20px;
           text-align: center;
         }
+
         #question h1 {
-          font-size: 30px;
+          font-size: 25px;
           font-weight: bold;
           font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
           margin: 0;
-          color: #C8A2C8;
+          color: yellow; /* Modificare culoarea textului la galben */
         }
       `;
 
@@ -98,8 +101,8 @@ export default {
 
       const jsScript = `
         var padding = {top:20, right:40, bottom:0, left:0},
-            w = 500 - padding.left - padding.right,
-            h = 500 - padding.top  - padding.bottom,
+            w = 570 - padding.left - padding.right,
+            h = 570 - padding.top  - padding.bottom,
             r = Math.min(w, h)/2,
             rotation = 0,
             oldrotation = 0,
@@ -107,18 +110,7 @@ export default {
             oldpick = [],
             color = d3.scale.category20();
             
-        var data = [
-          {"label":"B&B Merry",  "value":1,  "question":"Surprisingly heartwarming Christmas movie. Enjoy your watch!"}, 
-          {"label":"A Brush with Christmas",  "value":2,  "question":"A festive painting adventure awaits. Happy watching!"}, 
-          {"label":"Miracle in Cell No. 7",  "value":3,  "question":"Prepare for tears with this touching movie. Enjoy the journey!"}, 
-          {"label":"Purple Hearts",  "value":4,  "question":"Which color lights up your Christmas? Share your favorite!"}, 
-          {"label":"Forgotten Love",  "value":5,  "question":"Rediscover romance in this Christmas tale. Hope you love it!"}, 
-          {"label":"Pride & Prejudice",  "value":6,  "question":"Classic period drama for the holidays. Enjoy the elegance!"}, 
-          {"label":"Don't Look Up",  "value":7,  "question":"A sci-fi twist to Christmas. Buckle up for an intergalactic ride!"}, 
-          {"label":"Nowhere",  "value":8,  "question":"Dreaming of a Christmas getaway? Share your ideal vacation spot!"}, 
-          {"label":"Christmas As Usual",  "value":9,  "question":"What's your Christmas style? Traditional or quirky? Let us know!"}, 
-          {"label":"All the Bright Places", "value":10, "question":"Dive into the magic of Christmas books. Share your favorite read!"}
-        ];
+        var data = ${JSON.stringify(data)};
         
         var svg = d3.select('#chart')
           .append("svg")

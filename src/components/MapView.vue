@@ -1,8 +1,7 @@
 <template>
     <div class="map-wrapper" >
         <div id="map" class="map"></div>
-        <router-link :to="{ name: 'region', params: { countryCode: 'code' } }">
-        </router-link>
+          <router-link :to="{ name: 'region', params: { countryCode: 'code' } }"></router-link>
     </div>
 </template>
   
