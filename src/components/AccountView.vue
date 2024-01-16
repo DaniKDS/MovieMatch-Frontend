@@ -16,10 +16,10 @@
             <div class="offcanvas-body text-center">
               <div class="card contactCard">
                   <div class="card-body">
-                      <p><i>Date de contact</i></p>
+                      <p><i>Your account info</i></p>
                       <p>
                           <br>Name: {{ current_user.numeUtilizator }}
-                          <br>Prenume: {{ current_user.prenumeUtilizator }}
+                          <br>Surname: {{ current_user.prenumeUtilizator }}
                           <br>Email: {{ current_user.email }}
                       </p>
                   </div>
