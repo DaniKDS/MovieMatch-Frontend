@@ -8,6 +8,7 @@
       </div>
       <div class="col-lg-11 d-flex justify-content-center mb-5  " data-aos="zoom-in" data-aos-delay="200">
         <div class="btns">
+
           <a v-if="current_user.email == null" class="btn-menu animated fadeInUp scrollto " href="//oauth2/authorization/google">Login to explore our movies</a>
           <a v-if="current_user.email != null" class="btn-menu animated fadeInUp scrollto " href="/movies">Explore our movies</a>
         </div> 

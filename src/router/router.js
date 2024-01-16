@@ -72,16 +72,4 @@ const router = createRouter({
   routes,
 });
 
-
-router.beforeEach(async (to, from) => {
-  var current_user = await axios.get("/api/utilizatori/current");
-  if(to.meta.requiresAuth && current_user == null){
-    return {
-      path: '/'
-    }
-  }
-
-
-})
-
 export default router;
