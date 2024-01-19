@@ -34,7 +34,7 @@ import AccountView from './AccountView.vue';
             </option>
           </datalist>
         </div>
-        <button class="search-button" type="submit" aria-controls="searchModal" @click="openMovieModal()">
+        <button class="search-button" type="submit" aria-controls="searchModal" @click="get_movies_in_list(); openMovieModal()">
           <i class="bi bi-search"></i>
         </button>
       </form>
@@ -95,15 +95,13 @@ import AccountView from './AccountView.vue';
         </div>
         <!-- Modal Footer -->
         <div class="modal-footer">
-          <a @click="adaugare_film_in_lista( movieDetails.idFilm )" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">Add</a>
+          <a v-if="movies_in_list.find(x=>x.idFilm == movieDetails.idFilm) === undefined" @click="adaugare_film_in_lista( movieDetails.idFilm )" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">Add</a>
+          <a v-if="movies_in_list.find(x=>x.idFilm == movieDetails.idFilm) !== undefined" @click="sterge_film_din_lista( movieDetails.idFilm )" class="book-a-table-btn scrollto d-none d-lg-flex" type="button" data-bs-dismiss="modal">Remove</a>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
-
 
 <script>
 import axios from 'axios'
@@ -118,6 +116,7 @@ export default {
       },
       searchQuery: '',
       movieSuggestions: [],
+      movies_in_list: [],
       searchResults: [],
       movieDetails: {
         "titlu": "",
@@ -166,11 +165,21 @@ export default {
       }
     },
     adaugare_film_in_lista(id){
-      axios.post(`/api/film/adauga_film_in_lista/${id}`);
+      axios.post(`/api/film/adauga_film_in_lista/${id}`).then(this.get_movies_in_list());
     },
+    sterge_film_din_lista(id){
+      axios.post(`/api/film/sterge_pereche/${id}`).then(this.get_movies_in_list());
+    },
+    async get_movies_in_list(){
+      var seen = await axios.get(`/api/filme_vazute`);
+      var to_be_seen = await axios.get(`/api/filme_de_vazut`);
+      this.movies_in_list = seen.data.concat(to_be_seen.data);
+    }
+
   },
     created() {
-      axios.get("/api/utilizatori/current").then(response => { this.current_user = response.data })
+      axios.get("/api/utilizatori/current").then(response => { this.current_user = response.data });
+      this.get_movies_in_list();
     }
   }
 </script>
