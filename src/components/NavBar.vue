@@ -103,9 +103,6 @@ import AccountView from './AccountView.vue';
   </div>
 </template>
 
-
-
-
 <script>
 import axios from 'axios'
 export default {
